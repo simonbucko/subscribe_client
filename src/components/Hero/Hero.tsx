@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import {Container} from "react-bootstrap"
+import ModalComponent from "../Modal/Modal"
 
 const HeroComponent = styled.header`
     padding: 5rem 0;
@@ -9,8 +11,33 @@ const HeroComponent = styled.header`
     background-size: cover; 
 `
 
+const HeaderComponent = styled.div`
+    background-color: #20063B;
+    padding: 3rem;
+    color: white;
+    width: 32.5rem;
+`
+
+const Heading = styled.h1`
+    font-size: 5rem;
+`
+
+const SubHeading = styled.h3`
+    margin: 1rem 0;
+    font-weight: 400;
+`
+
 const Hero = () => {
-  return <HeroComponent>hero</HeroComponent>;
+  return <HeroComponent>
+      <Container>
+        <HeaderComponent>
+            <Heading>Feed you mind with the best</Heading>
+            <SubHeading>Grow, learn, and become more successful by reading some of the tops articles by higly reputable individuals</SubHeading>
+            <ModalComponent text="Signup" variant="primary"/>
+            <ModalComponent text="Login" variant="danger"/>
+        </HeaderComponent>
+      </Container>
+  </HeroComponent>;
 };
 
 export default Hero;
