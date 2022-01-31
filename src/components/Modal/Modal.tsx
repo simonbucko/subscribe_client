@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal, Button, InputGroup, FormControl} from "react-bootstrap" 
 import axios from "axios"
+import styled from 'styled-components';
 
 interface ModalProps {
  text: String;
@@ -8,8 +9,13 @@ interface ModalProps {
  isSignupFlow: boolean
 }
 
+const ErrorMessage = styled.p`
+color:red;
+`
+
 const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const [show, setShow] = React.useState(false);
+    const [errorMsg, setErrorMsg] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
@@ -19,18 +25,25 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const handleClick = async () => {
       let data;
       if(isSignupFlow){
-        const response = await axios.post("http://localhost:8080/auth/signup",{
+        const {data:signupData} = await axios.post("http://localhost:8080/auth/signup",{
           email,
           password
         })
-        console.log(response)
+        data=signupData
       }else{
-        const response = await axios.post("http://localhost:8080/auth/login",{
+        const {data:loginData} = await axios.post("http://localhost:8080/auth/login",{
           email,
           password
         })
-        console.log(response)
+        data=loginData
       }
+
+      //check for errors
+      if(data.errors.length){
+        setErrorMsg(data.errors[0].msg)
+      }
+
+      localStorage.setItem("token",data.data.token)
     }
 
 
@@ -55,6 +68,9 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
         </InputGroup.Text>
         <FormControl type="password" value={password} onChange={e => setPassword(e.target.value)}></FormControl>
       </InputGroup>
+      {
+        errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>
+      }
     </Modal.Body>
     <Modal.Footer>
       <Button variant="secondary" onClick={handleClose}>Close</Button>
