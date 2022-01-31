@@ -2,6 +2,7 @@ import React from 'react';
 import {Modal, Button, InputGroup, FormControl} from "react-bootstrap" 
 import axios from "axios"
 import styled from 'styled-components';
+import {useNavigate} from "react-router-dom"
 
 interface ModalProps {
  text: String;
@@ -18,6 +19,7 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const [errorMsg, setErrorMsg] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const navigate = useNavigate()
 
 
     const handleClose = () => setShow(false)
@@ -40,10 +42,11 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
 
       //check for errors
       if(data.errors.length){
-        setErrorMsg(data.errors[0].msg)
+       return setErrorMsg(data.errors[0].msg)
       }
 
       localStorage.setItem("token",data.data.token)
+      navigate("/articles")
     }
 
 
