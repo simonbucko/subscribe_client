@@ -33,8 +33,8 @@ const Hero = () => {
         <HeaderComponent>
             <Heading>Feed you mind with the best</Heading>
             <SubHeading>Grow, learn, and become more successful by reading some of the tops articles by higly reputable individuals</SubHeading>
-            <ModalComponent text="Signup" variant="primary"/>
-            <ModalComponent text="Login" variant="danger"/>
+            <ModalComponent text="Signup" variant="primary" isSignupFlow={true}/>
+            <ModalComponent text="Login" variant="danger" isSignupFlow={false}/>
         </HeaderComponent>
       </Container>
   </HeroComponent>;

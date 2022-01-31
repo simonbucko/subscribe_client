@@ -1,15 +1,39 @@
 import React from 'react';
 import {Modal, Button, InputGroup, FormControl} from "react-bootstrap" 
+import axios from "axios"
 
 interface ModalProps {
  text: String;
- variant: "primary" | "danger"
+ variant: "primary" | "danger";
+ isSignupFlow: boolean
 }
 
-const ModalComponent = ({text,variant}:ModalProps) => {
+const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const [show, setShow] = React.useState(false);
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+
     const handleClose = () => setShow(false)
     const handleOpen = () => setShow(true)
+    const handleClick = async () => {
+      let data;
+      if(isSignupFlow){
+        const response = await axios.post("http://localhost:8080/auth/signup",{
+          email,
+          password
+        })
+        console.log(response)
+      }else{
+        const response = await axios.post("http://localhost:8080/auth/login",{
+          email,
+          password
+        })
+        console.log(response)
+      }
+    }
+
+
   return <>
   <Button onClick={handleOpen} variant={variant} size="lg" style={{marginRight: "1rem", padding:"0.5rem 3rem"}}>{text}</Button>
   <Modal show={show} onHide={handleClose}>
@@ -23,18 +47,18 @@ const ModalComponent = ({text,variant}:ModalProps) => {
         <InputGroup.Text>
         Email
         </InputGroup.Text>
-        <FormControl type="email"></FormControl>
+        <FormControl type="email" value={email} onChange={e => setEmail(e.target.value)}></FormControl>
       </InputGroup>
       <InputGroup className="mb-3">
         <InputGroup.Text>
         Password
         </InputGroup.Text>
-        <FormControl type="password"></FormControl>
+        <FormControl type="password" value={password} onChange={e => setPassword(e.target.value)}></FormControl>
       </InputGroup>
     </Modal.Body>
     <Modal.Footer>
       <Button variant="secondary" onClick={handleClose}>Close</Button>
-      <Button variant="primary" >{text}</Button>
+      <Button variant="primary" onClick={handleClick}>{text}</Button>
     </Modal.Footer>
   </Modal>
   </>;
