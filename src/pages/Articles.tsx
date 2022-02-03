@@ -2,6 +2,7 @@ import {useEffect,useState} from 'react';
 import axios from "axios";
 import {Container} from "react-bootstrap";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 interface Article{
   id: string,
@@ -35,6 +36,23 @@ margin-top: 1rem;
 font-size: 1.5rem;
 `
 
+const NoArticlesContainer = styled.div`
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+text-align: center;
+padding: 20rem 0;
+& a{
+  font-size: 2rem;
+  text-decoration: none;
+}
+`
+
+const ErrorHeader = styled.h2`
+font-size: 3rem;
+`
+
 const Content = styled.p`
 margin-top: 1rem;
 font-size: 1.5rem;
@@ -61,7 +79,14 @@ const Articles = () => {
         </Card>
       ))}</CardsContainer>) 
     : (
-      <div>you dont have a plan</div>
+      <NoArticlesContainer>
+        <ErrorHeader>
+          You do not have access yet.
+        </ErrorHeader>
+        <Link to="/article-plans">
+          Buy a plan
+        </Link>
+      </NoArticlesContainer>
     )}
   </Container>;
 };
