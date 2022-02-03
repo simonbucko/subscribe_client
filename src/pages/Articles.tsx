@@ -1,7 +1,9 @@
-import React from 'react';
+import {useEffect} from 'react';
+import axios from "axios"
+import {Container} from "react-bootstrap"
 
 const Articles = () => {
-  return <div>articles</div>;
+  return <Container>articles</Container>;
 };
 
 export default Articles;
