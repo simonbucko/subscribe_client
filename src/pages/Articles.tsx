@@ -1,8 +1,9 @@
-import {useEffect,useState} from 'react';
+import {useEffect,useState,useContext, useRef} from 'react';
 import axios from "axios";
 import {Container} from "react-bootstrap";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context';
 
 interface Article{
   id: string,
@@ -60,6 +61,8 @@ font-size: 1.5rem;
 
 const Articles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [state,setState] = useContext(UserContext);
+
 
   useEffect(()=>{
       fetchArticles()
@@ -68,26 +71,31 @@ const Articles = () => {
     const {data:response} = await axios.get("http://localhost:8080/articles");
     setArticles(response)
   }
-  return <Container>
-    {articles.length ? 
-    (
-      <CardsContainer>{articles.map((article,index) => (
-        <Card key={index}>
-          <Image src={article.imageUrl}/>
-          <Header>{article.title}</Header>
-          <Content>{article.content}</Content>
-        </Card>
-      ))}</CardsContainer>) 
-    : (
-      <NoArticlesContainer>
-        <ErrorHeader>
-          You do not have access yet.
-        </ErrorHeader>
-        <Link to="/article-plans">
-          Buy a plan
-        </Link>
-      </NoArticlesContainer>
-    )}
+
+  if(state.loading) {
+    console.log("was here");
+    return <></>
+  }
+
+  return <Container>{articles.length ? 
+        (
+          <CardsContainer>{articles.map((article,index) => (
+            <Card key={index}>
+              <Image src={article.imageUrl}/>
+              <Header>{article.title}</Header>
+              <Content>{article.content}</Content>
+            </Card>
+          ))}</CardsContainer>) 
+        : (
+          <NoArticlesContainer>
+            <ErrorHeader>
+              You do not have access yet.
+            </ErrorHeader>
+            <Link to="/article-plans">
+              Buy a plan
+            </Link>
+          </NoArticlesContainer>
+        )}
   </Container>;
 };
 

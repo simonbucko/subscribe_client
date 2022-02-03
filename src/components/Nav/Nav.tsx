@@ -18,7 +18,6 @@ const handleLogout = () =>{
   navigate("/")
 }
 
-console.log(state)
 
   return (
     <Navbar>
