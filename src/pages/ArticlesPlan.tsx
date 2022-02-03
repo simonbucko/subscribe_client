@@ -65,7 +65,7 @@ const ArticlesPlan = () => {
   return <Container>
     <CardsContainer>
       {prices.map((price:any) => (
-        <Card style={{width: "18rem", marginRight:"2rem"}}> 
+        <Card style={{width: "18rem", marginRight:"2rem"}} key={price.id}> 
           <CardHeader style={{backgroundColor: backgroundColors[price.nickname]}}>
             <PriceCircle>
               <PriceText>

@@ -16,12 +16,12 @@ display: flex;
 `
 
 const Card = styled.div`
-height: 50rem;
-width: 32%;
+height: 55rem;
+width: 33%;
 box-shadow: 0.1rem 0.1rem 1rem rgba(0,0,0,0.2);
 padding: 2rem;
 border-radius: 2rem;
-margin-right: 5rem;
+margin-right: 2rem;
 `
 
 const Image = styled.img`
@@ -53,9 +53,11 @@ const Articles = () => {
   return <Container>
     {articles.length ? 
     (
-      <CardsContainer>{articles.map(article => (
-        <Card key={article.id}>
+      <CardsContainer>{articles.map((article,index) => (
+        <Card key={index}>
           <Image src={article.imageUrl}/>
+          <Header>{article.title}</Header>
+          <Content>{article.content}</Content>
         </Card>
       ))}</CardsContainer>) 
     : (
