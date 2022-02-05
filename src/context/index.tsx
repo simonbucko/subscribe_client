@@ -1,5 +1,7 @@
 import { createContext, useState,useEffect } from "react";
 import axios from "axios"
+import { SERVER_URL } from "../constants";
+
 
 interface User {
     data: {
@@ -37,7 +39,7 @@ const UserProvider = ({children}:any) => {
     }
 
     const fetchUser = async () => {
-        const {data:response} = await axios.get("http://localhost:8080/auth/me")
+        const {data:response} = await axios.get(`${SERVER_URL}/auth/me`)
         if(response.data && response.data.user){
             setUser({
                 data: {

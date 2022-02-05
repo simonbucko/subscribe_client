@@ -4,6 +4,7 @@ import {Container} from "react-bootstrap";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../context';
+import { SERVER_URL } from '../constants';
 
 interface Article{
   id: string,
@@ -79,7 +80,7 @@ const Articles = () => {
       fetchArticles()
   },[])
   const fetchArticles = async() => {
-    const {data:response} = await axios.get("http://localhost:8080/articles");
+    const {data:response} = await axios.get(`${SERVER_URL}/articles`);
     setArticles(response)
     setIsLoading(false)
   }

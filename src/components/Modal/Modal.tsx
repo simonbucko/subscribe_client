@@ -4,6 +4,7 @@ import axios from "axios"
 import styled from 'styled-components';
 import {useNavigate} from "react-router-dom"
 import { UserContext } from '../../context';
+import {SERVER_URL} from "../../constants"
 
 interface ModalProps {
  text: String;
@@ -29,13 +30,13 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const handleClick = async () => {
       let response;
       if(isSignupFlow){
-        const {data:signupData} = await axios.post("http://localhost:8080/auth/signup",{
+        const {data:signupData} = await axios.post(`${SERVER_URL}/auth/signup`,{
           email,
           password
         })
         response=signupData
       }else{
-        const {data:loginData} = await axios.post("http://localhost:8080/auth/login",{
+        const {data:loginData} = await axios.post(`${SERVER_URL}/auth/login`,{
           email,
           password
         })

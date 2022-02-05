@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useEffect,useState} from 'react';
 import styled from 'styled-components';
 import { Container, Card, Button } from 'react-bootstrap';
+import { SERVER_URL } from '../constants';
 
 const CardsContainer = styled.div`
 display: flex;
@@ -43,7 +44,7 @@ const ArticlesPlan = () => {
   }, []);
 
   const fetchPrices = async() => {
-    const {data: response} = await axios.get("http://localhost:8080/subs/prices")
+    const {data: response} = await axios.get(`${SERVER_URL}/subs/prices`)
     setPrices(response.data)
   }
 
@@ -54,7 +55,7 @@ const ArticlesPlan = () => {
   }
 
   const createSession = async(priceId:string) => {
-    const {data:response} = await axios.post("http://localhost:8080/subs/session",{
+    const {data:response} = await axios.post(`${SERVER_URL}/subs/session`,{
       priceId
     })
 
