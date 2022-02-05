@@ -20,7 +20,7 @@ gap: 32px;
 `
 
 const Card = styled.div`
-height: 55rem;
+height: 41rem;
 width: 48%;
 box-shadow: 0.1rem 0.1rem 1rem rgba(0,0,0,0.2);
 padding: 2rem;
@@ -59,6 +59,12 @@ font-size: 3rem;
 const Content = styled.p`
 margin-top: 1rem;
 font-size: 1.5rem;
+display: -webkit-box;
+-webkit-line-clamp: 6;
+-webkit-box-orient: vertical;
+overflow: hidden;
+padding: 0;
+word-break: break-word;
 `
 
 const Articles = () => {
