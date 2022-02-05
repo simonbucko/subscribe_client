@@ -1,4 +1,4 @@
-# Subsciption FullStack app
+# Subsciption FullStack MERN APP
 
 [Live Site](https://subsb.netlify.app/articles)
 
@@ -6,14 +6,24 @@
 
 ## About
 
-This full-stack MERN project with Stripe implementation, that allows users to create accounts, and start reading articles. THE PROJECT PURPOSE IS TO DEMONSTRATE MERN The user can choose between 3 subscription planThe project implements Stripe as payment gateway for users to
+This full-stack MERN project with Stripe implementation, that allows users to create accounts, and start reading articles. This repo is just used for frontend part. Backend part is hosted [in this repo](). THE PROJECT'S PURPOSE IS TO DEMONSTRATE MERN STACK WITH STRIPE IMPLEMENTATION. BUYING ARTICLES IS ON USER'S OWN RESPONSIBILITY! The user can choose between 3 subscription plans: Basic, Standard, Premium.
 
 ## Used stack
 
--React
--Typescript
+- React
+- Typescript
+- NodeJS
+- Express
+- MongoDB
+- STRIPE
 
--
+## Testing
+
+If you would like to test the application's flow, use following credit card information:
+
+- Credit Card Nr.: 4242 4242 4242 4242
+- Exp. Date: 02/22
+- Check Nr.: 222
 
 ## Available Scripts
 
