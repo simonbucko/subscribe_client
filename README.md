@@ -2,7 +2,7 @@
 
 [Live Site](https://subsb.netlify.app/articles)
 
-<img src="https://github.com/simonbucko/portfolio/blob/main/src/assets/projectPic.PNG" alt="subscribe app"/>
+<img src="https://github.com/simonbucko/subscribe_client/blob/main/src/assets/projectPic.png?raw=true" alt="subscribe app"/>
 
 ## About
 
