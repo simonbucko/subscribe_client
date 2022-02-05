@@ -31,7 +31,7 @@ background: #fdfdfd;
 const Image = styled.img`
 height: 20rem;
 width: 100%;
-border-radius: 2rem;
+border-radius: 1rem;
 object-fit: cover;
 `
 
