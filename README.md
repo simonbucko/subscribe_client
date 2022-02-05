@@ -6,7 +6,7 @@
 
 ## About
 
-This full-stack MERN project with Stripe implementation, that allows users to create accounts, and start reading articles. This repo is just used for frontend part. Backend part is hosted [in this repo](). THE PROJECT'S PURPOSE IS TO DEMONSTRATE MERN STACK WITH STRIPE IMPLEMENTATION. BUYING ARTICLES IS ON USER'S OWN RESPONSIBILITY! The user can choose between 3 subscription plans: Basic, Standard, Premium.
+This full-stack MERN project with Stripe implementation, that allows users to create accounts, and start reading articles. This repo is just used for frontend part. Backend part is hosted [in this repo](https://github.com/simonbucko/subscribe_server). THE PROJECT'S PURPOSE IS TO DEMONSTRATE MERN STACK WITH STRIPE IMPLEMENTATION. BUYING ARTICLES IS ON USER'S OWN RESPONSIBILITY! The user can choose between 3 subscription plans: Basic, Standard, Premium.
 
 ## Used stack
 
