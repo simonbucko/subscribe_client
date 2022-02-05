@@ -25,6 +25,7 @@ width: 48%;
 box-shadow: 0.1rem 0.1rem 1rem rgba(0,0,0,0.2);
 padding: 2rem;
 border-radius: 2rem;
+background: #fdfdfd;
 `
 
 const Image = styled.img`
