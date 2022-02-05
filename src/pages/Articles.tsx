@@ -62,7 +62,9 @@ font-size: 1.5rem;
 const Articles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [state,setState] = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(true);
 
+  console.log(state)
 
   useEffect(()=>{
       fetchArticles()
@@ -70,10 +72,10 @@ const Articles = () => {
   const fetchArticles = async() => {
     const {data:response} = await axios.get("http://localhost:8080/articles");
     setArticles(response)
+    setIsLoading(false)
   }
 
-  if(state.loading) {
-    console.log("was here");
+  if(isLoading) {
     return <></>
   }
 
