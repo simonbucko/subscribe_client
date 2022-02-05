@@ -24,6 +24,8 @@ const ModalComponent = ({text,variant,isSignupFlow}:ModalProps) => {
     const [state, setState] = useContext(UserContext);
     const navigate = useNavigate()
 
+    console.log(state)
+
 
     const handleClose = () => setShow(false)
     const handleOpen = () => setShow(true)

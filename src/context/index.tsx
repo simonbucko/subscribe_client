@@ -70,7 +70,7 @@ const UserProvider = ({children}:any) => {
                 loading: false
             })
         }
-    }, []);
+    }, [token]);
     
 
     return <UserContext.Provider value={[user,setUser]}>

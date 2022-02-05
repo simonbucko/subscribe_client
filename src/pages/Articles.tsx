@@ -1,9 +1,8 @@
-import {useEffect,useState,useContext, useRef} from 'react';
+import {useEffect,useState} from 'react';
 import axios from "axios";
 import {Container} from "react-bootstrap";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import { UserContext } from '../context';
 import { SERVER_URL } from '../constants';
 
 interface Article{
@@ -71,10 +70,8 @@ word-break: break-word;
 
 const Articles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [state,setState] = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(state)
 
   useEffect(()=>{
       fetchArticles()
