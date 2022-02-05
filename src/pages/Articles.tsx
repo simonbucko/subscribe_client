@@ -15,21 +15,23 @@ interface Article{
 const CardsContainer = styled.div`
 padding: 4rem 0;
 display: flex;
+flex-wrap: wrap;
+gap: 32px;
 `
 
 const Card = styled.div`
 height: 55rem;
-width: 33%;
+width: 48%;
 box-shadow: 0.1rem 0.1rem 1rem rgba(0,0,0,0.2);
 padding: 2rem;
 border-radius: 2rem;
-margin-right: 2rem;
 `
 
 const Image = styled.img`
-height: 30rem;
+height: 20rem;
 width: 100%;
 border-radius: 2rem;
+object-fit: cover;
 `
 
 const Header = styled.h2`

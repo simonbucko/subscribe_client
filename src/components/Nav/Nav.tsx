@@ -20,16 +20,11 @@ const handleLogout = () =>{
 
 
   return (
-    <Navbar>
-      <NavItem>
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-      </NavItem>
+    <Navbar style={{backgroundColor: "#20063b", height: 56}}>
       {state.data && (
         <LeftNavContainer>
           <NavItem>
-            <NavLink onClick={handleLogout}>
+            <NavLink onClick={handleLogout} style={{color: "#fdfdfd"}}>
               Logout
             </NavLink>
         </NavItem>
