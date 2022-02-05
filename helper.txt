@@ -1,0 +1,2 @@
+for deplying to netlify you need to add _redirects file to /public
+to disable CI on netlify change build command to "CI=false npm run build"
